@@ -38,6 +38,12 @@ werden:
 - Berlin:
   [mapant-berlin.pmtiles](https://mapant-tiles.orienteering-allgaeu.de/mapant-berlin.pmtiles)
   (ca. 290 MB)
+- Brandenburg:
+  [mapant-brandenburg.pmtiles](https://mapant-tiles.orienteering-allgaeu.de/mapant-brandenburg.pmtiles)
+  (ca. 1,0 GB)
+- Sachsen:
+  [mapant-sachsen.pmtiles](https://mapant-tiles.orienteering-allgaeu.de/mapant-sachsen.pmtiles)
+  (ca. 3,2 GB)
 
 Wenn du eine andere Lizenz benötigst, [melde dich
 gerne](mailto:gregor@sturmcloud.org), um darüber zu sprechen.
@@ -51,6 +57,10 @@ gerne](mailto:gregor@sturmcloud.org), um darüber zu sprechen.
 - Berlin LiDAR (© Geoportal Berlin / Airborne Laserscanning (ALS)
   ([dl-de/zero-2-0](https://www.govdata.de/dl-de/zero-2-0)))
 - Saarland LiDAR (© GeoBasis DE/LVGL-SL (2025)
+  ([dl-de/by-2-0](https://www.govdata.de/dl-de/by-2-0)))
+- Brandenburg LiDAR (© GeoBasis-DE/LGB
+  ([dl-de/by-2-0](https://www.govdata.de/dl-de/by-2-0)))
+- Sachsen LiDAR (© GeoSN
   ([dl-de/by-2-0](https://www.govdata.de/dl-de/by-2-0)))
 - Grenzen der Bundesländer von [Natural
   Earth](https://www.naturalearthdata.com/) (gemeinfrei)

@@ -72,15 +72,20 @@ export const STATES: FederalState[] = [
   {
     id: 'DE-BB',
     name: 'Brandenburg',
-    status: 'free',
+    status: 'rendered',
     crs: 'EPSG:25833',
+    archive: 'mapant-brandenburg.pmtiles',
+    reach: [11.17, 51.24, 14.87, 53.65],
+    // LGB publishes LiDAR for the southern half of the state only, to about 53° north.
     attribution: `© ${link('https://geobasis-bb.de', 'GeoBasis-DE/LGB')} (${DL_DE_BY})`,
   },
   {
     id: 'DE-SN',
     name: 'Sachsen',
-    status: 'free',
+    status: 'rendered',
     crs: 'EPSG:25833',
+    archive: 'mapant-sachsen.pmtiles',
+    reach: [11.79, 50.06, 15.13, 51.78],
     attribution: `© ${link('https://www.geodaten.sachsen.de', 'GeoSN')} (${DL_DE_BY})`,
   },
   {id: 'DE-TH', name: 'Thüringen', status: 'free', crs: 'EPSG:25832'},
