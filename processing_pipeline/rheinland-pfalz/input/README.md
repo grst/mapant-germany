@@ -53,3 +53,27 @@ Takes a few seconds plus whatever `--verify-headers` costs.
 
 Same columns as Bavaria's `laz_tiles.csv` (see `../../bayern/input/README.md`), with `units`
 naming the state.
+
+## Pre-downloading with aria2c
+
+`laz_tiles_batch_<NN>.meta4` split the samplesheet into Metalinks of at most
+1.5 TB each, in samplesheet order (west to east strips), with size and SHA-256
+per tile:
+
+| Batch | Tiles | Size |
+| ----- | ----: | ---: |
+| 01    | 5,042 | 1.50 TB |
+| 02    | 6,096 | 1.50 TB |
+| 03    | 5,535 | 1.50 TB |
+| 04    | 4,534 | 0.68 TB |
+
+```sh
+aria2c -M input/laz_tiles_batch_01.meta4 -d /path/to/laz -j 16 -x 4 \
+    --check-integrity=true --continue=true
+```
+
+Regenerate (e.g. with a different `--batch-tb`) after rebuilding the index:
+
+```sh
+uv run scripts/build_download_batches.py
+```

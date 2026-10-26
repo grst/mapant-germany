@@ -10,10 +10,11 @@
 
 import {inPolygon, type LonLat} from './geo';
 
-export type LidarStatus = 'rendered' | 'free' | 'fee' | 'none';
+/** `partial`: rendered, but the state publishes LiDAR for part of its ground only. */
+export type LidarStatus = 'rendered' | 'partial' | 'free' | 'fee' | 'none';
 
 /** The statuses, best first. */
-export const STATUSES: LidarStatus[] = ['rendered', 'free', 'fee', 'none'];
+export const STATUSES: LidarStatus[] = ['rendered', 'partial', 'free', 'fee', 'none'];
 
 /** The projected systems German state LiDAR comes in, and that an OCD export is written in. */
 export type StateCrs = 'EPSG:25832' | 'EPSG:25833';
@@ -72,15 +73,20 @@ export const STATES: FederalState[] = [
   {
     id: 'DE-BB',
     name: 'Brandenburg',
-    status: 'free',
+    status: 'partial',
     crs: 'EPSG:25833',
+    archive: 'mapant-brandenburg.pmtiles',
+    reach: [11.17, 51.24, 14.87, 53.65],
+    // LGB publishes LiDAR for the southern half of the state only, to about 53° north.
     attribution: `© ${link('https://geobasis-bb.de', 'GeoBasis-DE/LGB')} (${DL_DE_BY})`,
   },
   {
     id: 'DE-SN',
     name: 'Sachsen',
-    status: 'free',
+    status: 'rendered',
     crs: 'EPSG:25833',
+    archive: 'mapant-sachsen.pmtiles',
+    reach: [11.79, 50.06, 15.13, 51.78],
     attribution: `© ${link('https://www.geodaten.sachsen.de', 'GeoSN')} (${DL_DE_BY})`,
   },
   {id: 'DE-TH', name: 'Thüringen', status: 'free', crs: 'EPSG:25832'},
@@ -114,9 +120,10 @@ export const STATES: FederalState[] = [
   {id: 'DE-SH', name: 'Schleswig-Holstein', status: 'none', crs: 'EPSG:25832'},
 ];
 
-/** The shading of each status at the overview zooms. */
+/** The shading of each status at the overview zooms; `partial` is striped over it (layers.ts). */
 export const STATUS_COLORS: Record<LidarStatus, string> = {
   rendered: '#2f8f4e',
+  partial: '#2f8f4e',
   free: '#3172ad',
   fee: '#d9962b',
   none: '#8c8c8c',

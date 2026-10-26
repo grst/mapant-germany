@@ -1,6 +1,7 @@
 import {addProtocol} from 'maplibre-gl';
 import type {
   ExpressionSpecification,
+  Map,
   GeoJSONSourceSpecification,
   LayerSpecification,
   SourceSpecification,
@@ -193,7 +194,8 @@ export function hillshadeStyle(): StyleSpecification {
 
 /**
  * What each state publishes of its LiDAR, as a tint over the basemap below the orienteering map's
- * zooms: rendered, free, against a fee, or not at all (states.ts).
+ * zooms: rendered, free, against a fee, or not at all (states.ts). A state rendered only in part is
+ * the rendered green, struck through with pale stripes.
  */
 function stateLayers(): LayerSpecification[] {
   const statusOf = ['match', ['get', 'id'], ...STATES.flatMap((s) => [s.id, s.status]), 'none'];
@@ -212,6 +214,14 @@ function stateLayers(): LayerSpecification[] {
       paint: {'fill-color': color, 'fill-opacity': 0.32},
     },
     {
+      id: 'states-partial',
+      type: 'fill',
+      source: 'states',
+      maxzoom: MAP_MIN_ZOOM,
+      filter: ['==', statusOf as ExpressionSpecification, 'partial'],
+      paint: {'fill-pattern': PARTIAL_PATTERN, 'fill-opacity': 0.6},
+    },
+    {
       id: 'states-outline',
       type: 'line',
       source: 'states',
@@ -221,8 +231,29 @@ function stateLayers(): LayerSpecification[] {
   ];
 }
 
+const PARTIAL_PATTERN = 'states:partial';
+
+/**
+ * Adds the stripes of a state rendered only in part: white bands at 45°, a third of the tile wide,
+ * which repeat seamlessly because the tile is square.
+ */
+export function addStatePatterns(map: Map, pixelRatio: number): void {
+  const ratio = Math.max(1, Math.round(pixelRatio));
+  const size = 12 * ratio;
+  const data = new Uint8Array(size * size * 4);
+  for (let y = 0; y < size; y++) {
+    for (let x = 0; x < size; x++) {
+      if ((x + y) % size < size / 3) {
+        data.fill(255, (y * size + x) * 4, (y * size + x + 1) * 4);
+      }
+    }
+  }
+  map.addImage(PARTIAL_PATTERN, {width: size, height: size, data}, {pixelRatio: ratio});
+}
+
 const STATUS_KEYS: Record<LidarStatus, Key> = {
   rendered: 'status.rendered',
+  partial: 'status.partial',
   free: 'status.free',
   fee: 'status.fee',
   none: 'status.none',
@@ -231,6 +262,7 @@ const STATUS_KEYS: Record<LidarStatus, Key> = {
 /** A darker shade of each status colour, legible as text on the tinted basemap. */
 const STATUS_TEXT_COLORS: Record<LidarStatus, string> = {
   rendered: '#0f4d26',
+  partial: '#0f4d26',
   free: '#123f6b',
   fee: '#6b4204',
   none: '#3a3a3a',

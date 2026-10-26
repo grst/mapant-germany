@@ -13,6 +13,7 @@ export const en = {
   'hint.zoomIn': 'Zoom in to view the orienteering map',
 
   'status.rendered': 'Mapant rendered',
+  'status.partial': 'Mapant rendered, incomplete coverage',
   'status.free': 'LiDAR freely available',
   'status.fee': 'LiDAR against a fee',
   'status.none': 'No LiDAR available',
