@@ -15,6 +15,7 @@ export const de: Record<Key, string> = {
   'hint.zoomIn': 'Hineinzoomen, um die Orientierungslaufkarte zu sehen',
 
   'status.rendered': 'fertig',
+  'status.partial': 'fertig, unvollständige Abdeckung',
   'status.free': 'LiDAR frei verfügbar',
   'status.fee': 'LiDAR gegen Gebühr',
   'status.none': 'Kein LiDAR verfügbar',

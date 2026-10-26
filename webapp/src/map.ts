@@ -8,6 +8,7 @@ import {t} from './i18n';
 import type {Key} from './i18n/en';
 import {provideIsomIcons, rasterizeIsomIcons} from './isomstyle';
 import {
+  addStatePatterns,
   attributions,
   createStyle,
   MAP_MAX_ZOOM,
@@ -81,6 +82,7 @@ export function createMap(
   map.touchZoomRotate.disableRotation();
   map.keyboard.disableRotation();
   provideIsomIcons(map, rasterizeIsomIcons(window.devicePixelRatio));
+  addStatePatterns(map, window.devicePixelRatio);
 
   map.addControl(new NavigationControl({showCompass: false}), 'top-left');
   // The whole page area under the navbar, so the footer's notices stay out of the way.
