@@ -57,8 +57,10 @@ export const STATES: FederalState[] = [
   {
     id: 'DE-RP',
     name: 'Rheinland-Pfalz',
-    status: 'free',
+    status: 'rendered',
     crs: 'EPSG:25832',
+    archive: 'mapant-rlp.pmtiles',
+    reach: [5.99, 48.85, 8.61, 51.04],
     attribution: `© ${link('https://lvermgeo.rlp.de', 'GeoBasis-DE / LVermGeoRP')} (${DL_DE_BY})`,
   },
   {

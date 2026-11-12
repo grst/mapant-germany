@@ -44,6 +44,9 @@ werden:
 - Sachsen:
   [mapant-sachsen.pmtiles](https://mapant-tiles.orienteering-allgaeu.de/mapant-sachsen.pmtiles)
   (ca. 3,2 GB)
+- Rheinland-Pfalz:
+  [mapant-rlp.pmtiles](https://mapant-tiles.orienteering-allgaeu.de/mapant-rlp.pmtiles)
+  (ca. 5,3 GB)
 
 Wenn du eine andere Lizenz benötigst, [melde dich
 gerne](mailto:gregor@sturmcloud.org), um darüber zu sprechen.
@@ -61,6 +64,8 @@ gerne](mailto:gregor@sturmcloud.org), um darüber zu sprechen.
 - Brandenburg LiDAR (© GeoBasis-DE/LGB
   ([dl-de/by-2-0](https://www.govdata.de/dl-de/by-2-0)))
 - Sachsen LiDAR (© GeoSN
+  ([dl-de/by-2-0](https://www.govdata.de/dl-de/by-2-0)))
+- Rheinland-Pfalz LiDAR (© GeoBasis-DE / LVermGeoRP
   ([dl-de/by-2-0](https://www.govdata.de/dl-de/by-2-0)))
 - Grenzen der Bundesländer von [Natural
   Earth](https://www.naturalearthdata.com/) (gemeinfrei)
