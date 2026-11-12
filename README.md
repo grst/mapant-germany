@@ -42,6 +42,9 @@ The map of each state can be downloaded in
 - Sachsen:
   [mapant-sachsen.pmtiles](https://mapant-tiles.orienteering-allgaeu.de/mapant-sachsen.pmtiles)
   (ca. 3.2 GB)
+- Rheinland-Pfalz:
+  [mapant-rlp.pmtiles](https://mapant-tiles.orienteering-allgaeu.de/mapant-rlp.pmtiles)
+  (ca. 5.3 GB)
 
 If you need a different license, feel free to [reach
 out](mailto:gregor@sturmcloud.org) to discuss.
@@ -59,6 +62,8 @@ out](mailto:gregor@sturmcloud.org) to discuss.
 - Brandenburg LiDAR (© GeoBasis-DE/LGB
   ([dl-de/by-2-0](https://www.govdata.de/dl-de/by-2-0)))
 - Sachsen LiDAR (© GeoSN
+  ([dl-de/by-2-0](https://www.govdata.de/dl-de/by-2-0)))
+- Rheinland-Pfalz LiDAR (© GeoBasis-DE / LVermGeoRP
   ([dl-de/by-2-0](https://www.govdata.de/dl-de/by-2-0)))
 - Federal state boundaries from [Natural
   Earth](https://www.naturalearthdata.com/) (public domain)
